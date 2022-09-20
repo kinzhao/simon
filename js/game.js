@@ -1,6 +1,7 @@
 $(document).ready(() => {
     var buttonColours = ['red', 'blue', 'green', 'yellow'];
-    var $levelTitle = $('.level-title');
+    var $levelTitle = $('.level-score');
+    var $highScore = $('.high-score');
     var $startGame = $('.start-game-button .front');
     var highScore = 0;
 
@@ -33,8 +34,10 @@ $(document).ready(() => {
     function displayError(colorSelected) {
         var audio = new Audio('./sounds/wrong.mp3');
         var $body = $('body');
+        var highScoreList = $highScore[0].outerText.split(':');
 
-        $levelTitle.text('Game Over, current high score is:' + highScore);
+        highScoreList[1] = highScore;
+        $highScore.text(highScoreList.join(': '));
         highlightButton(colorSelected, 'wrong-selection');
         $body.addClass('game-over');
         audio.play();
@@ -75,7 +78,7 @@ $(document).ready(() => {
                             if(gamePattern.length > highScore) {
                                 highScore = gamePattern.length;
                             }
-                            
+
                             continueGame(gamePattern);
                             userInputCount = 0; //reset to zero so user have to reenter
                         }, 500);

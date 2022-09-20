@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Simon</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dist/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <script
   src="https://code.jquery.com/jquery-3.6.1.min.js"
@@ -12,17 +12,43 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
-  <h1 class="game-title">Simon</h1>
-  
-  <h2 class="level-title">Press A Key to Start</h2>
+  <div class="game-container">
+    <h1 class="game-title">Simon</h1>
 
-  <div class="button-container">
-      <div type="button" class="btn green"></div>
-      <div type="button" class="btn red"></div>
-      <div type="button" class="btn yellow"></div>
-      <div type="button" class="btn blue"></div>
-  </div>
+    <h2 class="level-title">High Score: 0</h2>
 
+    <div class="button-container">
+      <button class="btn pushable green">
+        <span class="shadow"></span>
+        <span class="edge"></span>
+        <span class="front"></span>
+      </button>
+    
+      <button class="btn pushable red">
+        <span class="shadow"></span>
+        <span class="edge"></span>
+        <span class="front"></span>
+      </button>
+    
+      <button class="btn pushable yellow">
+        <span class="shadow"></span>
+        <span class="edge"></span>
+        <span class="front"></span>
+      </button>
+    
+      <button class="btn pushable blue">
+        <span class="shadow"></span>
+        <span class="edge"></span>
+        <span class="front"></span>
+      </button>
+    </div>
+
+    <button class="pushable start-game-button">
+      <span class="shadow"></span>
+      <span class="edge"></span>
+      <span class="front">Start Game</span>
+    </button>
+</div>
   <script src="js/game.js"></script>
 </body>
 </html>

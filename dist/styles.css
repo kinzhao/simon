@@ -61,14 +61,16 @@ body .game-container .game-title {
   font-size: 3rem;
   color: #f7cf05;
   font-family: 'Press Start 2P', cursive;
+  text-shadow: 2px 2px 4px #000;
 }
 body .game-container .level-title {
   line-height: 1.5;
   color: #948b0a;
   font-family: 'Press Start 2P', cursive;
+  text-shadow: 2px 2px 4px #000;
 }
 body .game-container .button-container {
-  margin: auto 38px;
+  margin: 38px auto;
 }
 body .game-container .pushable {
   position: relative;
@@ -170,6 +172,7 @@ body .game-container .start-game-button .front {
   color: #f7cf05;
   font-family: 'Press Start 2P', cursive;
   padding: 10px 20px;
+  text-shadow: 2px 2px 4px #000;
 }
 body .game-container .pressed {
   box-shadow: 0 0 20px white;

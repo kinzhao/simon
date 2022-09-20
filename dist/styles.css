@@ -45,8 +45,11 @@ body {
   -ms-user-select: none;
   /* Internet Explorer/Edge */
   user-select: none;
-  /* Non-prefixed version, currently
-                                supported by Chrome, Edge, Opera and Firefox */
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+body.game-over {
+  background-color: #ba0909;
+  opacity: 0.8;
 }
 body .game-container {
   position: absolute;
@@ -69,12 +72,13 @@ body .game-container .button-container {
 }
 body .game-container .pushable {
   position: relative;
-  border: none;
+  border: 1px solid black;
   background: transparent;
   padding: 0;
   cursor: pointer;
   outline-offset: 4px;
   transition: filter 250ms;
+  border-radius: 12px;
 }
 body .game-container .pushable:hover {
   filter: brightness(110%);
@@ -166,10 +170,6 @@ body .game-container .start-game-button .front {
   color: #f7cf05;
   font-family: 'Press Start 2P', cursive;
   padding: 10px 20px;
-}
-body .game-container .game-over {
-  background-color: #ba0909;
-  opacity: 0.8;
 }
 body .game-container .pressed {
   box-shadow: 0 0 20px white;

@@ -53,9 +53,13 @@ body {
   -ms-user-select: none;
   /* Internet Explorer/Edge */
   user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  
+  &.game-over {
+    background-color: #ba0909;
+    opacity: 0.8;
+  }
 
-  /* Non-prefixed version, currently
-                                supported by Chrome, Edge, Opera and Firefox */
   .game-container {
     position: absolute;
     top: 38%;
@@ -231,10 +235,6 @@ body {
         padding: 10px 20px;
       }
     }    
-    .game-over {
-      background-color: #ba0909;
-      opacity: 0.8;
-    }
 
     .pressed {
       box-shadow: 0 0 20px white;

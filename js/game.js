@@ -23,12 +23,12 @@ $(document).ready(() => {
     }
 
     function highlightButton(color, className) {
-        var $element = $('.' + color);
+        var $element = $('.' + color +' .front');
         $element.addClass(className);
                 
         setTimeout(() => {
             $element.removeClass(className);
-        }, 200);
+        }, 500);
     }
 
     function displayError(colorSelected) {
@@ -38,7 +38,6 @@ $(document).ready(() => {
 
         highScoreList[1] = highScore;
         $highScore.text(highScoreList.join(': '));
-        highlightButton(colorSelected, 'wrong-selection');
         $body.addClass('game-over');
         audio.play();
 
@@ -66,12 +65,10 @@ $(document).ready(() => {
                 if(userInputTotalCount > 0 && gamePattern[userInputCount] === colorSelected && userInputCount<userInputTotalCount) {
                     //check previous entries
                     userInputCount++;
-                    highlightButton(colorSelected, 'pressed');
 
                 } else if(userInputTotalCount === userInputCount && gamePattern[userInputTotalCount] === colorSelected) {
                     //when 0 - first selection
                     userInputTotalCount++;
-                    highlightButton(colorSelected, 'pressed');
 
                     if(userInputTotalCount === gamePattern.length) {
                         setTimeout(() => {

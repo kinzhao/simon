@@ -174,15 +174,6 @@ body .game-container .start-game-button .front {
   padding: 10px 20px;
   text-shadow: 2px 2px 4px #000;
 }
-body .game-container .pressed {
-  box-shadow: 0 0 20px white;
-  background-color: #08ff20;
-}
 body .game-container .computer-selected {
   box-shadow: 0 0 20px white;
-  background-color: #00eaf6;
-}
-body .game-container .wrong-selection {
-  box-shadow: 0 0 20px white;
-  background-color: #ba0909;
 }

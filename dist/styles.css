@@ -68,6 +68,8 @@ body .game-container .level-title {
   color: #948b0a;
   font-family: 'Press Start 2P', cursive;
   text-shadow: 2px 2px 4px #000;
+  margin: 5px;
+  font-size: 16px;
 }
 body .game-container .button-container {
   margin: 20px auto;
@@ -132,6 +134,7 @@ body .game-container .front {
   will-change: transform;
   transform: translateY(-4px);
   transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  border: 1px solid black;
 }
 body .game-container .red .edge {
   background: linear-gradient(to left, #3a0114 0%, #a50037 8%, #a50037 92%, #3a0114 100%);

@@ -1,0 +1,185 @@
+@media only screen and (max-width: 767px) {
+  .level-title {
+    font-size: 1rem;
+  }
+  .button-container {
+    width: 300px;
+    margin: auto;
+  }
+  .button-container .pushable {
+    width: 120px;
+    margin: 5px 1px;
+  }
+  .button-container .front {
+    height: 90px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .level-title {
+    font-size: 2rem;
+    width: 658px;
+  }
+  .button-container {
+    width: 600px;
+    margin-top: 38px;
+  }
+  .button-container .pushable {
+    width: 220px;
+    margin: 6px 2px;
+  }
+  .button-container .front {
+    height: 150px;
+  }
+}
+body {
+  text-align: center;
+  background-color: #03173b;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+body .game-container {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body .game-container .game-title {
+  font-size: 3rem;
+  color: #f7cf05;
+  font-family: 'Press Start 2P', cursive;
+}
+body .game-container .level-title {
+  line-height: 1.5;
+  color: #948b0a;
+  font-family: 'Press Start 2P', cursive;
+}
+body .game-container .button-container {
+  margin: auto 38px;
+}
+body .game-container .pushable {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+}
+body .game-container .pushable:hover {
+  filter: brightness(110%);
+}
+body .game-container .pushable:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+body .game-container .pushable:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+body .game-container .pushable:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+body .game-container .pushable:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+body .game-container .pushable:focus:not(:focus-visible) {
+  outline: none;
+}
+body .game-container .shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsla(0, 0%, 0%, 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+body .game-container .edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+body .game-container .front {
+  display: block;
+  position: relative;
+  padding: 12px 42px;
+  border-radius: 12px;
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+body .game-container .red .edge {
+  background: linear-gradient(to left, #3a0114 0%, #a50037 8%, #a50037 92%, #3a0114 100%);
+}
+body .game-container .red .front {
+  background: red;
+}
+body .game-container .green .edge {
+  background: linear-gradient(to left, #005217 0%, #00a31e 8%, #00a31e 92%, #005217 100%);
+}
+body .game-container .green .front {
+  background: green;
+}
+body .game-container .blue .edge {
+  background: linear-gradient(to left, #07014e 0%, #022f90 8%, #022f90 92%, #07014e 100%);
+}
+body .game-container .blue .front {
+  background: blue;
+}
+body .game-container .yellow .edge {
+  background: linear-gradient(to left, #5a5a01 0%, #b1b703 8%, #b1b703 92%, #5a5a01 100%);
+}
+body .game-container .yellow .front {
+  background: yellow;
+}
+body .game-container .start-game-button {
+  width: 260px;
+  margin-top: 30px;
+}
+body .game-container .start-game-button .edge {
+  background: linear-gradient(to left, #0f113d 0%, #0a3869 8%, #0a6951 92%, #0f113d 100%);
+}
+body .game-container .start-game-button .front {
+  height: 38px;
+  background: linear-gradient(to left, #2c308e 0%, #03173b 8%, #0a3869 50%, #03173b 96%, #2c308e 100%);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: #f7cf05;
+  font-family: 'Press Start 2P', cursive;
+  padding: 10px 20px;
+}
+body .game-container .game-over {
+  background-color: #ba0909;
+  opacity: 0.8;
+}
+body .game-container .pressed {
+  box-shadow: 0 0 20px white;
+  background-color: #08ff20;
+}
+body .game-container .computer-selected {
+  box-shadow: 0 0 20px white;
+  background-color: #00eaf6;
+}
+body .game-container .wrong-selection {
+  box-shadow: 0 0 20px white;
+  background-color: #ba0909;
+}

@@ -80,13 +80,14 @@ body {
 
     .pushable {
       position: relative;
-      border: none;
+      border: 1px solid black;
       background: transparent;
       padding: 0;
       cursor: pointer;
       outline-offset: 4px;
       transition: filter 250ms;
-
+      border-radius: 12px;
+      
       &:hover {
         filter: brightness(110%);
         .shadow {

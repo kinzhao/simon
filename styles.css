@@ -1,0 +1,75 @@
+body {
+  text-align: center;
+  background-color: #03173b;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+
+.game-title {
+  font-size: 3rem;
+  color: #f7cf05;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.level-title {
+  font-size: 2rem;
+  margin: 20px;
+  line-height: 1.5;
+  color: #948b0a;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.button-container {
+  width: 266px;
+  margin: auto;
+}
+
+.btn {
+  margin: 5px;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  border: 10px solid black;
+  border-radius: 20%;
+}
+
+.game-over {
+  background-color: #ba0909;
+  opacity: 0.8;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pressed {
+  box-shadow: 0 0 20px white;
+  background-color: #08ff20;
+}
+
+.computer-selected {
+  box-shadow: 0 0 20px white;
+  background-color: #00eaf6;
+}
+
+.wrong-selection {
+  box-shadow: 0 0 20px white;
+  background-color: #ba0909;
+}

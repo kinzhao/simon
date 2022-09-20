@@ -1,0 +1,23 @@
+{
+  "name": "simon-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "lessc styles/styles.less dist/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kinzhao/simon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kinzhao/simon/issues"
+  },
+  "homepage": "https://github.com/kinzhao/simon#readme",
+  "dependencies": {
+    "less": "^4.1.3"
+  }
+}

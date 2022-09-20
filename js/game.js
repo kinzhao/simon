@@ -1,5 +1,6 @@
 $(document).ready(() => {
     var buttonColours = ['red', 'blue', 'green', 'yellow'];
+    var $body = $('body');
     var $levelTitle = $('.level-score');
     var $highScore = $('.high-score');
     var $startGame = $('.start-game-button .front');
@@ -33,17 +34,12 @@ $(document).ready(() => {
 
     function displayError(colorSelected) {
         var audio = new Audio('./sounds/wrong.mp3');
-        var $body = $('body');
         var highScoreList = $highScore[0].outerText.split(':');
 
         highScoreList[1] = highScore;
         $highScore.text(highScoreList.join(': '));
         $body.addClass('game-over');
         audio.play();
-
-        setTimeout(() => {
-            $body.removeClass('game-over');
-        }, 500);
     }
 
     function startGame() {
@@ -54,7 +50,11 @@ $(document).ready(() => {
 
         continueGame(gamePattern);
         $startGame.text('Restart');
-
+        
+        if($body.hasClass('game-over')) {
+            $body.removeClass('game-over');
+        }
+        
         $('.btn').unbind('click').bind('click', function(event) {
             var colorSelected = event.currentTarget.classList[2];
             console.log('user selection: ', colorSelected);

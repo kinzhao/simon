@@ -1,6 +1,8 @@
 $(document).ready(() => {
     var buttonColours = ['red', 'blue', 'green', 'yellow'];
     var $levelTitle = $('.level-title');
+    var $startGame = $('.start-game-button .front');
+    var highScore = 0;
 
     function nextSequence() {
         return Math.floor(Math.random()*4);
@@ -32,7 +34,7 @@ $(document).ready(() => {
         var audio = new Audio('./sounds/wrong.mp3');
         var $body = $('body');
 
-        $levelTitle.text('Game Over, Press Any Key to Restart');
+        $levelTitle.text('Game Over, current high score is:' + highScore);
         highlightButton(colorSelected, 'wrong-selection');
         $body.addClass('game-over');
         audio.play();
@@ -49,9 +51,10 @@ $(document).ready(() => {
         var gameEnded = true;
 
         continueGame(gamePattern);
+        $startGame.text('Restart');
 
         $('.btn').unbind('click').bind('click', function(event) {
-            var colorSelected = event.currentTarget.classList[1];
+            var colorSelected = event.currentTarget.classList[2];
             console.log('user selection: ', colorSelected);
 
             if(!gameEnded) {
@@ -69,6 +72,10 @@ $(document).ready(() => {
 
                     if(userInputTotalCount === gamePattern.length) {
                         setTimeout(() => {
+                            if(gamePattern.length > highScore) {
+                                highScore = gamePattern.length;
+                            }
+                            
                             continueGame(gamePattern);
                             userInputCount = 0; //reset to zero so user have to reenter
                         }, 500);
@@ -82,7 +89,7 @@ $(document).ready(() => {
         });
     }
 
-    $(document).keypress(function() {
+    $('.start-game-button').unbind('click').bind('click', function(event) {
         clearTimeout($.data(this, 'timer'));
         var wait = setTimeout(startGame, 500);
         $(this).data('timer', wait);

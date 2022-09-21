@@ -1,10 +1,14 @@
-$(document).ready(() => {
+$(document).ready(function() {
     var buttonColours = ['red', 'blue', 'green', 'yellow'];
     var $body = $('body');
     var $levelTitle = $('.level-score');
     var $highScore = $('.high-score');
     var $startGame = $('.start-game-button .front');
     var highScore = 0;
+    var gamePattern = [];
+    var userInputCount = 0;
+    var userInputTotalCount = 0;
+    var gameEnded = true;
 
     function nextSequence() {
         return Math.floor(Math.random()*4);
@@ -48,56 +52,52 @@ $(document).ready(() => {
     }
 
     function startGame() {
-        var gamePattern = [];
-        var userInputCount = 0;
-        var userInputTotalCount = 0;
-        var gameEnded = true;
-
+        //resets initial values when restarting
+        gamePattern = [];
+        userInputCount = 0;
+        userInputTotalCount = 0;
+        gameEnded = true;
+        
+        highScore && updateHighScore(); //update high score if user restarts without getting an error
         continueGame(gamePattern);
         $startGame.text('Restart');
-        
-        if($body.hasClass('game-over')) {
-            $body.removeClass('game-over');
-        }
-        
-        $('.btn').unbind('click').bind('click', function(event) {
-            var colorSelected = event.currentTarget.classList[2];
-            console.log('user selection: ', colorSelected);
-
-            if(!gameEnded) {
-                displayError(colorSelected);
-            } else {
-                if(userInputTotalCount > 0 && gamePattern[userInputCount] === colorSelected && userInputCount<userInputTotalCount) {
-                    //check previous entries
-                    userInputCount++;
-
-                } else if(userInputTotalCount === userInputCount && gamePattern[userInputTotalCount] === colorSelected) {
-                    //when 0 - first selection
-                    userInputTotalCount++;
-
-                    if(userInputTotalCount === gamePattern.length) {
-                        if(gamePattern.length > highScore) {
-                            highScore = gamePattern.length;
-                        }
-
-                        setTimeout(() => {
-                            continueGame(gamePattern);
-                            userInputCount = 0; //reset to zero so user have to reenter
-                        }, 500);
-                    }
-
-                } else {
-                    displayError(colorSelected);
-                    gameEnded = false;
-                }
-            }
-        });
+        $body.hasClass('game-over') && $body.removeClass('game-over');
     }
 
-    $('.start-game-button').unbind('click').bind('click', function(event) {
-        updateHighScore();
-        clearTimeout($.data(this, 'timer'));
-        var wait = setTimeout(startGame, 500);
-        $(this).data('timer', wait);
+    $('.btn').click(function(event) {
+        var colorSelected = event.currentTarget.classList[2];
+        console.log('user selection: ', colorSelected);
+
+        if(!gameEnded) {
+            //if user tries to keep selecting when they've already reached an error
+            displayError(colorSelected);
+        } else {
+            if(userInputTotalCount > 0 && gamePattern[userInputCount] === colorSelected && userInputCount < userInputTotalCount) {
+                //check previous entries
+                userInputCount++;
+
+            } else if(userInputTotalCount === userInputCount && gamePattern[userInputTotalCount] === colorSelected) {
+                userInputTotalCount++;
+
+                if(userInputTotalCount === gamePattern.length) {
+                    if(gamePattern.length > highScore) {
+                        highScore = gamePattern.length;
+                    }
+
+                    setTimeout(() => {
+                        continueGame(gamePattern);
+                        userInputCount = 0; //reset to zero so user have to reenter
+                    }, 500);
+                }
+
+            } else {
+                displayError(colorSelected);
+                gameEnded = false;
+            }
+        }
+    });
+
+    $('.start-game-button').click(function(event) {
+        startGame();
     });
 });

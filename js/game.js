@@ -32,12 +32,17 @@ $(document).ready(() => {
         }, 500);
     }
 
-    function displayError(colorSelected) {
-        var audio = new Audio('./sounds/wrong.mp3');
+    function updateHighScore() {
         var highScoreList = $highScore[0].outerText.split(':');
 
         highScoreList[1] = highScore;
         $highScore.text(highScoreList.join(': '));
+    }
+
+    function displayError(colorSelected) {
+        var audio = new Audio('./sounds/wrong.mp3');
+        
+        updateHighScore();
         $body.addClass('game-over');
         audio.play();
     }
@@ -71,11 +76,11 @@ $(document).ready(() => {
                     userInputTotalCount++;
 
                     if(userInputTotalCount === gamePattern.length) {
-                        setTimeout(() => {
-                            if(gamePattern.length > highScore) {
-                                highScore = gamePattern.length;
-                            }
+                        if(gamePattern.length > highScore) {
+                            highScore = gamePattern.length;
+                        }
 
+                        setTimeout(() => {
                             continueGame(gamePattern);
                             userInputCount = 0; //reset to zero so user have to reenter
                         }, 500);
@@ -90,6 +95,7 @@ $(document).ready(() => {
     }
 
     $('.start-game-button').unbind('click').bind('click', function(event) {
+        updateHighScore();
         clearTimeout($.data(this, 'timer'));
         var wait = setTimeout(startGame, 500);
         $(this).data('timer', wait);

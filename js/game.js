@@ -35,7 +35,7 @@ $(document).ready(() => {
     function displayError(colorSelected) {
         var audio = new Audio('./sounds/wrong.mp3');
         var highScoreList = $highScore[0].outerText.split(':');
-
+        
         highScoreList[1] = highScore;
         $highScore.text(highScoreList.join(': '));
         $body.addClass('game-over');
@@ -50,12 +50,12 @@ $(document).ready(() => {
 
         continueGame(gamePattern);
         $startGame.text('Restart');
-        
+
         if($body.hasClass('game-over')) {
             $body.removeClass('game-over');
         }
         
-        $('.btn').unbind('click').bind('click', function(event) {
+        $('.btn').on('click', function(event) {
             var colorSelected = event.currentTarget.classList[2];
             console.log('user selection: ', colorSelected);
 
@@ -89,7 +89,7 @@ $(document).ready(() => {
         });
     }
 
-    $('.start-game-button').unbind('click').bind('click', function(event) {
+    $('.start-game-button').on('click', function(event) {
         clearTimeout($.data(this, 'timer'));
         var wait = setTimeout(startGame, 500);
         $(this).data('timer', wait);

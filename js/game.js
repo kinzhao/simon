@@ -33,7 +33,7 @@ $(document).ready(function() {
                 
         setTimeout(() => {
             $element.removeClass(className);
-        }, 500);
+        }, 300);
     }
 
     function updateHighScore() {
@@ -87,7 +87,7 @@ $(document).ready(function() {
                     setTimeout(() => {
                         continueGame(gamePattern);
                         userInputCount = 0; //reset to zero so user have to reenter
-                    }, 500);
+                    }, 300);
                 }
 
             } else {
